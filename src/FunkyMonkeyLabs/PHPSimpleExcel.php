@@ -1,9 +1,9 @@
 <?php
 
-namespace PHPSimpleExcel;
+namespace FunkyMonkeyLabs;
 
-use PHPSimpleExcel\Element\Row;
-use PHPSimpleExcel\Element\ElementInterface;
+use FunkyMonkeyLabs\Element\Row;
+use FunkyMonkeyLabs\Element\ElementInterface;
 
 /**
  * Generating simple excel documents in PHP. Made on the basis of php-excel from Oliver Schwarz
@@ -120,7 +120,7 @@ class PHPSimpleExcel
     {
         $row = new Row($this->encoding, $this->convertTypes);
 
-        foreach ($array as $key => $value) {
+        foreach ($array as $value) {
             $row->addCell($value);
         }
         $this->lines[] = $row->end();
@@ -150,15 +150,14 @@ class PHPSimpleExcel
         return $this->lines[$uniqueId];
     }
 
-
     /**
-     * Generate the excel file
-     * Fixed version - send correct attachment file in IE8 with ssl
+     * Render a complete .xls file
+     * Fixed: Send correct attachment file in IE8 with ssl
      *
      * @param string $filename Name of excel file to generate (...xls)
      * @param string $contentDisposition (inline|attachment)
      */
-    public function generateXML($filename = 'excel-export', $contentDisposition = 'inline')
+    public function render($filename, $contentDisposition = 'inline')
     {
         // correct/validate filename
         $filename = preg_replace('/[^aA-zZ0-9\_\-]/', '', $filename);
@@ -170,23 +169,32 @@ class PHPSimpleExcel
         header("Pragma: private");
         header("Content-Transfer-Encoding: binary\n");
 
-        // print out document to the browser
-        // need to use stripslashes for the damn ">"
-        echo stripslashes(sprintf($this->header, $this->encoding));
-        echo $this->prepareStyles();
-        echo "\n<Worksheet ss:Name=\"" . $this->worksheetTitle . "\">\n";
-        echo "<Table>";
+        echo $this->generateXML();
+    }
+
+
+    /**
+     * Generate the excel file
+     */
+    public function generateXML()
+    {
+        $xml = stripslashes(sprintf($this->header, $this->encoding));
+        $xml .= $this->prepareStyles();
+        $xml .= "<Worksheet ss:Name=\"" . $this->worksheetTitle . "\">";
+        $xml .= "<Table>";
         foreach ($this->lines as $line) {
             if ($line instanceof ElementInterface) {
-                echo $line->render();
+                $xml .= $line->render();
             } else {
-                echo $line;
+                $xml .= $line;
             }
         }
 
 
-        echo "</Table>\n</Worksheet>\n";
-        echo $this->footer;
+        $xml .= "</Table>\n</Worksheet>\n";
+        $xml .= $this->footer;
+
+        return trim($xml, " \t\n\r");
     }
 
     /**

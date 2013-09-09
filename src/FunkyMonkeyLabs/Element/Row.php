@@ -1,6 +1,6 @@
 <?php
 
-namespace PHPSimpleExcel\Element;
+namespace FunkyMonkeyLabs\Element;
 
 /**
  * Simple class to menage current row
@@ -79,6 +79,7 @@ class Row implements ElementInterface
     public function end()
     {
         $this->data .= "</Row>";
+        return $this;
     }
 
     /**
