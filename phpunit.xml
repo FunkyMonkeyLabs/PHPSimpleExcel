@@ -11,7 +11,7 @@
 
     <testsuites>
         <testsuite name="PHPSimpleExcel">
-            <directory>./tests/FunkyMonkeyLabs/Tests</directory>
+            <directory>./tests/FML/Tests</directory>
         </testsuite>
     </testsuites>
 </phpunit>

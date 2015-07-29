@@ -1,6 +1,6 @@
 <?php
 
-namespace FunkyMonkeyLabs\Element;
+namespace FML\PHPSimpleExcel\Element;
 
 /**
  * @author Patryk Szlagowski [FunkyMonkeyLabs] <szlagowskipatryk@gmail.com>

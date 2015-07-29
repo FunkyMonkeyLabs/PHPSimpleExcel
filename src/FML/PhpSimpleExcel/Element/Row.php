@@ -1,6 +1,6 @@
 <?php
 
-namespace FunkyMonkeyLabs\Element;
+namespace FML\PHPSimpleExcel\Element;
 
 /**
  * Simple class to menage current row

@@ -1,6 +1,6 @@
 <?php
 
-namespace FunkyMonkeyLabs\Tests;
+namespace FML\Tests;
 
 abstract class TestParent extends \PHPUnit_Framework_TestCase
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace FunkyMonkeyLabs\Tests;
+namespace FML\Tests;
 
-use FunkyMonkeyLabs\PHPSimpleExcel;
+use FML\PHPSimpleExcel\PHPSimpleExcel;
 
 class RenderTest extends TestParent
 {

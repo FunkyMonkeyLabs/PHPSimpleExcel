@@ -1,10 +1,10 @@
 <?php
 
-namespace FunkyMonkeyLabs\Tests\Element;
+namespace FML\Tests\Element;
 
-use FunkyMonkeyLabs\Element\Row;
-use FunkyMonkeyLabs\PHPSimpleExcel;
-use FunkyMonkeyLabs\Tests\TestParent;
+use FML\PHPSimpleExcel\Element\Row;
+use FML\PHPSimpleExcel\PHPSimpleExcel;
+use FML\Tests\TestParent;
 
 class RowTest extends TestParent
 {

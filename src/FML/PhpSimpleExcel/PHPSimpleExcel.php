@@ -1,9 +1,9 @@
 <?php
 
-namespace FunkyMonkeyLabs;
+namespace FML\PHPSimpleExcel;
 
-use FunkyMonkeyLabs\Element\Row;
-use FunkyMonkeyLabs\Element\ElementInterface;
+use FML\PHPSimpleExcel\Element\Row;
+use FML\PHPSimpleExcel\Element\ElementInterface;
 
 /**
  * Generating simple excel documents in PHP. Made on the basis of php-excel from Oliver Schwarz

@@ -11,7 +11,7 @@ FunkyMonkeyLabs\PHPSimpleExcel is available on packagist.org (composer), so you 
 
 ```
     "require": {
-        "funkymonkeylabs/phpsimpleexcel" : "v1.0"
+        "fml/phpsimpleexcel" : "v1.0.0"
     }
 ```
 
@@ -21,11 +21,9 @@ Usage
 ```php
 <?php
 
-require_once __DIR__.'/../src/PHPSimpleExcel.php';
-require_once __DIR__.'/../src/Element/ElementInterface.php';
-require_once __DIR__.'/../src/Element/Row.php';
+require_once __DIR__.'/vendor/autoload.php';
 
-$excel = new PHPSimpleExcel\PHPSimpleExcel();
+$excel = new FML\PhpSimpleExcel\PhpSimpleExcel();
 $excel->addNamedStyle('idFormat', array(
         "NumberFormat" => array(
             "ss:Format" => "##00"
